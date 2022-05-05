@@ -30,24 +30,23 @@
       </address>
       <div id="vm">
         <h3>Contact form</h3>
-        <form>
+        <form @submit.prevent="onSubmit" @reset="onReset">
           <label for="name">
             Name
-            <input id="name" name="name" type="text" />
+            <input v-model.lazy="name" type="text" />
           </label>
           <label for="email">
             Email
-            <input id="email" name="email" type="email" />
+            <input v-model.lazy="email" type="email" />
           </label>
           <label for="phone">
             Phone
-            <input id="phone" name="phone" type="tel" />
+            <input v-model="phone" type="tel" />
           </label>
           <label for="content">
             Content
             <textarea
-              id="content"
-              name="content"
+              v-model.lazy="content"
               style="resize: vertical"
             ></textarea>
           </label>
