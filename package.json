@@ -4,7 +4,7 @@
   "description": "Quang Pham's attemp at FireGroup Intern Test, Question 2: Contract Form",
   "main": "./build/index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "serve --single"
   },
   "repository": {
     "type": "git",
@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/pmq24/firegroup-intern-test-question-2/issues"
   },
-  "homepage": "https://github.com/pmq24/firegroup-intern-test-question-2#readme"
+  "homepage": "https://github.com/pmq24/firegroup-intern-test-question-2#readme",
+  "dependencies": {
+    "serve": "^13.0.2"
+  }
 }
