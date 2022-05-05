@@ -1,12 +1,13 @@
-<template>
-  <p1>Hello FireGroup</p1>
-</template>
-
 <script lang="ts">
 import { defineComponent } from "vue";
+import ContactForm from "@/components/ContactForm.vue";
 
 export default defineComponent({
   name: "App",
-  components: {},
+  components: { ContactForm },
 });
 </script>
+
+<template>
+  <ContactForm />
+</template>
