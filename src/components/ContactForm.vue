@@ -29,7 +29,16 @@ function submit() {
       label="Your email"
       validation="required|email"
     />
-    <FormKit type="tel" name="phone" label="Phone" validation="required|tel" />
+    <FormKit
+      type="text"
+      name="phone"
+      label="Phone"
+      validation="required|matches:/\d+/|length:10,10"
+      :validation-messages="{
+        matches: 'Please enter a valid phone',
+        length: 'Phone must be 10-digit long',
+      }"
+    />
     <FormKit
       type="textarea"
       name="content"
