@@ -9,6 +9,13 @@ Vue.createApp({
   },
   methods: {
     onSubmit: function () {
+      db.getCollection("entries").insert({
+        name: this.name,
+        email: this.email,
+        phone: this.phone,
+        content: this.content,
+        time: Date.now(),
+      });
       console.info("Form submited");
     },
     onReset: function () {
