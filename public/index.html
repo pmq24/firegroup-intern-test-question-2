@@ -31,6 +31,13 @@
       </address>
       <div id="vm">
         <h3>Contact form</h3>
+        <p>
+          <i>
+            <u>Note:</u>
+            Data are saved in web's <code>LocalStorage</code> and will be lost
+            if user decides to clear browser data.
+          </i>
+        </p>
         <form @submit.prevent="onSubmit" @reset="onReset">
           <label for="name">
             Name
