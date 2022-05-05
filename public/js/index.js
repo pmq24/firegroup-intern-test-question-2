@@ -16,7 +16,12 @@ Vue.createApp({
         content: this.content,
         time: Date.now(),
       });
-      console.info("Form submited");
+      console.info("Form submited. Printing new data...");
+      console.table(
+        db
+          .getCollection("entries")
+          .data.map((entry) => _.omit(entry, "meta", "$loki"))
+      );
     },
     onReset: function () {
       this.name = this.email = this.phone = this.content = "";

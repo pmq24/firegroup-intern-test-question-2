@@ -11,10 +11,10 @@ function databaseInitialize() {
     entries = db.addCollection("entries");
   }
 
-  runProgramLogic();
-}
-
-function runProgramLogic() {
-  var entryCount = db.getCollection("entries").count();
-  console.log("number of entries in database : " + entryCount);
+  console.info("Printing data...");
+  console.table(
+    db
+      .getCollection("entries")
+      .data.map((entry) => _.omit(entry, "meta", "$loki"))
+  );
 }
