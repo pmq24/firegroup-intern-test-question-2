@@ -21,13 +21,7 @@ function submit() {
 
 <template>
   <h3>Contact Form</h3>
-  <FormKit
-    type="form"
-    v-model="formData"
-    :form-class="submitted ? 'hide' : 'show'"
-    submit-label="Register"
-    @submit="submit"
-  >
+  <FormKit type="form" v-model="formData" @submit="submit">
     <FormKit type="text" name="name" label="Your name" validation="required" />
     <FormKit
       type="email"
@@ -48,3 +42,8 @@ function submit() {
   </div>
   <pre wrap>{{ formData }}</pre>
 </template>
+<style lang="css">
+.formkit-message {
+  color: var(--del-color);
+}
+</style>

@@ -9,5 +9,7 @@ export default defineComponent({
 </script>
 
 <template>
-  <ContactForm />
+  <div class="container">
+    <ContactForm />
+  </div>
 </template>
