@@ -1,0 +1,24 @@
+{
+  "name": "firegroup-intern-test-question-2",
+  "version": "0.1.0",
+  "description": "Quang Pham's attemp at FireGroup Intern Test, Question 2: Contract Form",
+  "main": "./build/index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pmq24/firegroup-intern-test-question-2.git"
+  },
+  "keywords": [
+    "FireGroup",
+    "intern",
+    "Vue"
+  ],
+  "author": "Quang Pham <pmq.24.5@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pmq24/firegroup-intern-test-question-2/issues"
+  },
+  "homepage": "https://github.com/pmq24/firegroup-intern-test-question-2#readme"
+}
