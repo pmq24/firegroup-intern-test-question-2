@@ -28,7 +28,33 @@
         <a href="mailto:pmq.24.5@gmail.com"> pmq.24.5@gmail.com</a><br />
         Phone: <a href="tel:0389422279" title="Tap to call me!">0389422279</a>
       </address>
-      <div id="vm">{{message}}</div>
+      <div id="vm">
+        <h3>Contact form</h3>
+        <form>
+          <label for="name">
+            Name
+            <input id="name" name="name" type="text" />
+          </label>
+          <label for="email">
+            Email
+            <input id="email" name="email" type="email" />
+          </label>
+          <label for="phone">
+            Phone
+            <input id="phone" name="phone" type="tel" />
+          </label>
+          <label for="content">
+            Content
+            <textarea
+              id="content"
+              name="content"
+              style="resize: vertical"
+            ></textarea>
+          </label>
+          <input type="reset" />
+          <input type="submit" value="Submit" />
+        </form>
+      </div>
     </main>
     <script src="./js/index.js"></script>
   </body>
