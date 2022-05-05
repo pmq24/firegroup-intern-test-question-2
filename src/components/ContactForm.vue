@@ -42,7 +42,7 @@ function submit() {
     <FormKit
       type="textarea"
       name="content"
-      label="content"
+      label="Content"
       validation="required"
     />
   </FormKit>
