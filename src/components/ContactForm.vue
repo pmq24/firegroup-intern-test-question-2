@@ -3,6 +3,8 @@ import { Ref, ref } from "vue";
 
 import { FormKit } from "@formkit/vue";
 
+import Database from "@/Database";
+
 type FormData = Partial<{
   name: string;
   email: string;
@@ -10,12 +12,27 @@ type FormData = Partial<{
   content: string;
 }>;
 
-const submitted: Ref<boolean> = ref(false);
-const formData: Ref<FormData> = ref({});
+type ContactRecord = {
+  name: string;
+  email: string;
+  phone: string;
+  content: string;
+  time: string;
+};
 
-function submit() {
-  console.log(formData);
-  submitted.value = true;
+const formData: Ref<FormData> = ref({});
+const contacts: Ref<Array<ContactRecord>> = ref([]);
+
+Database.on("ready", () => {
+  contacts.value = Database.getCollection("contacts").data;
+});
+
+async function submit() {
+  await Database.getCollection("contacts").insert({
+    ...formData.value,
+    time: new Date(Date.now()).toISOString(),
+  });
+  contacts.value = Database.getCollection("contacts").data;
 }
 </script>
 
@@ -46,10 +63,22 @@ function submit() {
       validation="required"
     />
   </FormKit>
-  <div v-if="submitted">
-    <h2>Submission successful!</h2>
-  </div>
-  <pre wrap>{{ formData }}</pre>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Time</th>
+      <th>Content</th>
+    </tr>
+    <tr v-for="(contact, index) in contacts" :key="index">
+      <td>{{ contact.name }}</td>
+      <td>{{ contact.email }}</td>
+      <td>{{ contact.phone }}</td>
+      <td>{{ contact.time }}</td>
+      <td>{{ contact.content }}</td>
+    </tr>
+  </table>
 </template>
 <style lang="css">
 .formkit-message {
