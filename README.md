@@ -1,24 +1,20 @@
-# firegroup-intern-test-question-2
+# FireGroup Intern Test - Question 2: Contact Form
 
-## Project setup
-```
-npm install
+## Participant: Quang Pham
+
+- [Phone: 0389422279](tel:0389422279)
+- [Email: pmq.24.5@gmail.com](mailto:pmq.24.5@gmail.com)
+
+## How to run the project:
+
+1. Clone the repository:
+
+```console
+git clone https://github.com/pmq24/firegroup-intern-test-question-2.git
 ```
 
-### Compiles and hot-reloads for development
-```
+2. Run the project with
+
+```console
 npm run serve
 ```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
