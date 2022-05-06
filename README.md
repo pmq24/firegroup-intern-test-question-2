@@ -13,6 +13,12 @@
 git clone https://github.com/pmq24/firegroup-intern-test-question-2.git
 ```
 
+1. Install dependencies via NPM
+
+```console
+npm ci
+```
+
 2. Run the project with
 
 ```console
