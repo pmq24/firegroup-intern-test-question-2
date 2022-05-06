@@ -1,10 +1,11 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import ContactForm from "@/components/ContactForm.vue";
+import ContactTable from "@/components/ContactTable.vue";
 
 export default defineComponent({
   name: "App",
-  components: { ContactForm },
+  components: { ContactForm, ContactTable },
 });
 </script>
 
@@ -20,5 +21,6 @@ export default defineComponent({
     </address>
 
     <ContactForm />
+    <ContactTable />
   </div>
 </template>

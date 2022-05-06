@@ -3,7 +3,7 @@ import { Ref, ref } from "vue";
 
 import { FormKit } from "@formkit/vue";
 
-import Database from "@/Database";
+import { Database, contactsRef } from "@/Database";
 
 type FormData = Partial<{
   name: string;
@@ -12,27 +12,18 @@ type FormData = Partial<{
   content: string;
 }>;
 
-type ContactRecord = {
-  name: string;
-  email: string;
-  phone: string;
-  content: string;
-  time: string;
-};
-
 const formData: Ref<FormData> = ref({});
-const contacts: Ref<Array<ContactRecord>> = ref([]);
 
-Database.on("ready", () => {
-  contacts.value = Database.getCollection("contacts").data;
-});
-
-async function submit() {
-  await Database.getCollection("contacts").insert({
+function submit() {
+  Database.getCollection("contacts").insert({
     ...formData.value,
     time: new Date(Date.now()).toISOString(),
   });
-  contacts.value = Database.getCollection("contacts").data;
+  contactsRef.value = Database.getCollection("contacts").data;
+}
+
+async function reset() {
+  formData.value = {};
 }
 </script>
 
@@ -62,24 +53,10 @@ async function submit() {
       label="Content"
       validation="required"
     />
+    <FormKit type="button" label="Reset" @click="reset" />
   </FormKit>
-  <table>
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Phone</th>
-      <th>Time</th>
-      <th>Content</th>
-    </tr>
-    <tr v-for="(contact, index) in contacts" :key="index">
-      <td>{{ contact.name }}</td>
-      <td>{{ contact.email }}</td>
-      <td>{{ contact.phone }}</td>
-      <td>{{ contact.time }}</td>
-      <td>{{ contact.content }}</td>
-    </tr>
-  </table>
 </template>
+
 <style lang="css">
 .formkit-message {
   color: var(--del-color);

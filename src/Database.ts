@@ -1,6 +1,17 @@
 import LokiJs from "lokijs";
+import { Ref, ref } from "vue";
 
-const Database = new LokiJs("contacts.db", {
+export type ContactEntity = {
+  name: string;
+  email: string;
+  phone: string;
+  time: string;
+  content: string;
+};
+
+export const contactsRef: Ref<ContactEntity[]> = ref([]);
+
+export const Database = new LokiJs("contacts.db", {
   autoload: true,
   autoloadCallback: databaseInitialize,
   autosave: true,
@@ -12,6 +23,6 @@ function databaseInitialize() {
   if (entries === null) {
     entries = Database.addCollection("contacts");
   }
-}
 
-export default Database;
+  contactsRef.value = Database.getCollection<ContactEntity>("contacts").data;
+}
